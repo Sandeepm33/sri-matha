@@ -1,7 +1,7 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Restaurant.css';
 
 const Restaurant = () => {
@@ -81,6 +81,17 @@ const Restaurant = () => {
       [e.target.name]: e.target.value
     });
   };
+
+  // Add useEffect to initialize Bootstrap components
+  useEffect(() => {
+    // Initialize Bootstrap components
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    }
+  }, []);
 
   return (
     <div className="restaurant-page">

@@ -1,7 +1,7 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Catering.css';
 
 const Catering = () => {
@@ -74,6 +74,17 @@ const Catering = () => {
       name: '', email: '', phone: '', event: '', date: '', guests: '', package: '', message: ''
     });
   };
+
+  // Add useEffect to initialize Bootstrap components
+  useEffect(() => {
+    // Initialize Bootstrap tooltips and modals
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    }
+  }, []);
 
   return (
     <div className="catering-page">

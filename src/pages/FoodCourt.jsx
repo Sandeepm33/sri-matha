@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './FoodCourt.css';
 
 const FoodCourt = () => {
@@ -47,6 +47,17 @@ const FoodCourt = () => {
   useEffect(() => {
     const allItems = Object.values(foodStalls).flat().filter(item => item.id);
     foodStalls.all = allItems;
+  }, []);
+
+  // Add useEffect to initialize Bootstrap components and cart functionality
+  useEffect(() => {
+    // Initialize Bootstrap components
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    }
   }, []);
 
   const getCurrentItems = () => {
