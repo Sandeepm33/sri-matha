@@ -98,9 +98,7 @@ const Restaurant = () => {
       {/* Navigation */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container">
-          <button className="btn btn-outline-warning me-3" onClick={() => navigate('/')}>
-            ← Back to Home
-          </button>
+    
           <a className="navbar-brand fw-bold" href="#">
             <img src="/lovable-uploads/5e6c1c4f-5c6a-4ea2-8dc3-b75be2d011b1.png" alt="Logo" width="40" height="40" className="me-2 rounded" />
             Sri Matha Restaurant
@@ -114,6 +112,9 @@ const Restaurant = () => {
               Cart ({cart.length})
             </button>
           </div>
+                <button className="btn btn-outline-warning me-3" onClick={() => navigate('/')}>
+            ← Back to Home
+          </button>
         </div>
       </nav>
 

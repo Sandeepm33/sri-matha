@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './Index.css';
+import '../pages/Index.css';
 
 const Index = () => {
   const navigate = useNavigate();
 
-  // Add useEffect to initialize Bootstrap components
   useEffect(() => {
-    // Initialize Bootstrap components
     if (typeof window !== 'undefined' && window.bootstrap) {
       const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -52,7 +50,7 @@ const Index = () => {
         <div className="container">
           <a className="navbar-brand fw-bold" href="#">
             <img src="/lovable-uploads/5e6c1c4f-5c6a-4ea2-8dc3-b75be2d011b1.png" alt="Logo" width="40" height="40" className="me-2 rounded" />
-            Sri Matha Group
+            Sri Matha 
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
@@ -80,7 +78,7 @@ const Index = () => {
       <section id="home" className="hero-section">
         <div className="hero-overlay">
           <div className="container text-center text-white">
-            <h1 className="display-2 fw-bold mb-4 fade-in">Sri Matha Group</h1>
+            <h1 className="display-2 fw-bold mb-4 fade-in">Sri Matha </h1>
             <p className="lead fs-3 mb-5">Experience Excellence in Every Bite</p>
             <a href="#services" className="btn btn-warning btn-lg px-5 py-3 rounded-pill">
               Explore Our Services
@@ -103,12 +101,13 @@ const Index = () => {
                   <div className="card-img-container">
                     <img src={service.image} className="card-img-top" alt={service.title} />
                     <div className="card-img-overlay d-flex align-items-center justify-content-center">
-                      <div className="text-center text-white">
-                        <h3 className="card-title fw-bold">{service.title}</h3>
+                      <div className="text-center text-dark">
+                        <h1 className="card-title fw-bold">{service.title}</h1>
                       </div>
                     </div>
                   </div>
                   <div className="card-body d-flex flex-column">
+                     <h3 className="card-title fw-bold">{service.title}</h3>
                     <p className="card-text text-muted mb-4">{service.description}</p>
                     <div className="features mb-4">
                       {service.features.map((feature, index) => (
